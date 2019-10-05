@@ -8,6 +8,14 @@ files2=sorted(glob.glob('*/*_vh_clean_2.labels.ply'))
 assert len(files) == len(files2)
 
 # 把数据存储为 coords, colors, labels的形式
+# 1 depth -2 < y < 2; 0 < z < 80
+# 2 找到coord对应rgb代码
+# 3 存起来，检查一下labels怎么用
+
+
+
+
+
 def f(fn):
     fn2 = fn[:-3]+'labels.ply'
     a=plyfile.PlyData().read(fn)
