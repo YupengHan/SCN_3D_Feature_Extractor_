@@ -50,10 +50,15 @@ def f(img_n):
     labels = f.readlines()
     label_3d_boxes = []
 
-    for i in len(labels):
-        obj = kitti_utils.Object3d(labels[i])
-        box3d = kitti_utils.compute_box_3d(obj, calib_data.P)
+    for label in labels:
+        if label[0:8] == "DontCare":
+            continue
+        obj = Object3d(label)
+        box3d = compute_box_3d(obj, calib_data.P)
         label_3d_boxes.append(box3d[1])
+
+
+    
 
 
 
